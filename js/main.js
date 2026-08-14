@@ -1,5 +1,5 @@
 /**
- * XKX.at — Main JavaScript
+ * Sirvan.org — Main JavaScript
  * Handles theme toggle, navigation, scroll animations,
  * animated statistics, and email obfuscation.
  */
@@ -8,13 +8,13 @@
   'use strict';
 
   /* --------------------------------------------------------------------------
-     Email obfuscation — prevents bots from harvesting mail@xkx.at
+     Email obfuscation — prevents bots from harvesting hazhir@sirvan.org
      Address is split, reversed, and assembled only on user interaction.
      -------------------------------------------------------------------------- */
   const EMAIL_PARTS = {
-  u: String.fromCharCode(109, 97, 105, 108),       // mail
-  d: String.fromCharCode(120, 107, 120),            // xkx
-  t: String.fromCharCode(97, 116)                   // at
+  u: String.fromCharCode(104, 97, 122, 104, 105, 114), // hazhir
+  d: String.fromCharCode(115, 105, 114, 118, 97, 110), // sirvan
+  t: String.fromCharCode(111, 114, 103)                // org
   };
 
   function buildEmail() {
@@ -68,7 +68,7 @@
      -------------------------------------------------------------------------- */
   function initTheme() {
     const toggle = document.querySelector('.theme-toggle');
-    const stored = localStorage.getItem('xkx-theme');
+    const stored = localStorage.getItem('sirvan-theme');
     const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
     if (stored) {
@@ -86,7 +86,7 @@
         } else {
           document.documentElement.setAttribute('data-theme', 'light');
         }
-        localStorage.setItem('xkx-theme', next);
+        localStorage.setItem('sirvan-theme', next);
       });
     }
   }
