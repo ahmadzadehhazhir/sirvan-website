@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -24; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulse-travel-1 {
+  0%, 100% { top: 60px; left: 50%; opacity: 0; }
+  10% { opacity: 1; }
+  50% { top: 130px; left: 50%; opacity: 1; }
+  60% { opacity: 0; }
+}
+
+@keyframes pulse-travel-2 {
+  0%, 100% { top: 130px; left: 50%; opacity: 0; }
+  10% { opacity: 1; }
+  50% { top: 210px; left: 20%; opacity: 1; }
+  60% { opacity: 0; }
+}
+
+@keyframes pulse-travel-3 {
+  0%, 100% { top: 130px; left: 50%; opacity: 0; }
+  10% { opacity: 1; }
+  50% { top: 210px; left: 80%; opacity: 1; }
+  60% { opacity: 0; }
+}
+
+/* Staggered reveal children */
+.reveal.visible .service-card,
+.reveal.visible .industry-card,
+.reveal.visible .why-card {
+  animation: fade-up 0.5s ease forwards;
+}
+
+.services__grid .reveal.visible:nth-child(1) { animation-delay: 0s; }
+.services__grid .reveal.visible:nth-child(2) { animation-delay: 0.05s; }
+.services__grid .reveal.visible:nth-child(3) { animation-delay: 0.1s; }
+.services__grid .reveal.visible:nth-child(4) { animation-delay: 0.15s; }
+.services__grid .reveal.visible:nth-child(5) { animation-delay: 0.2s; }
+.services__grid .reveal.visible:nth-child(6) { animation-delay: 0.25s; }
+.services__grid .reveal.visible:nth-child(7) { animation-delay: 0.3s; }
+.services__grid .reveal.visible:nth-child(8) { animation-delay: 0.35s; }
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
